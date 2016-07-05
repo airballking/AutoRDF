@@ -20,6 +20,8 @@ class ObjectProperty: public RdfsEntity {
 public:
     ObjectProperty(const ontology::ObjectProperty& decorated) : RdfsEntity(decorated), _decorated(decorated) {}
 
+    void generateInclusionPath(std::ostream& ofs, const Klass& onClass) const;
+
     void generateDeclaration(std::ostream& ofs, const Klass& onClass) const;
 
     void generateDefinition(std::ostream& ofs, const Klass& onClass) const;
@@ -27,6 +29,7 @@ public:
     void generateKeyDeclaration(std::ostream& ofs, const Klass& onClass) const;
 
 private:
+
     /**
      * Gets the class for this property, when instanciated as class "onClass" attribute
      */

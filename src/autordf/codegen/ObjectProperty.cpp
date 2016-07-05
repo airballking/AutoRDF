@@ -7,6 +7,12 @@
 namespace autordf {
 namespace codegen {
 
+void ObjectProperty::generateInclusionPath(std::ostream& ofs, const Klass& onClass) const {
+    auto propertyClass = effectiveClass(onClass);
+    ofs << "#include <" << propertyClass.genCppNameSpaceInclusionPath() <<
+        "/" << propertyClass.prettyIRIName() << ".h>" << std::endl;
+}
+
 void ObjectProperty::generateDeclaration(std::ostream& ofs, const Klass& onClass) const {
     auto propertyClass = effectiveClass(onClass);
 

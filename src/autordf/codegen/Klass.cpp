@@ -113,6 +113,13 @@ void Klass::generateDefinition() const {
     createFile(genCppNameSpaceInclusionPath() + "/" + cppName + ".cpp", &ofs);
 
     startInternal(ofs);
+
+    // Include property classes
+    // FIXME: Should be done in interface header, but naively including in headers may cause compilation errors!
+    for ( const std::shared_ptr<ontology::ObjectProperty>& prop : _decorated.objectProperties())
+        ObjectProperty(*prop.get()).generateInclusionPath(ofs, _decorated);
+    ofs << std::endl;
+
     ofs << "#include <" << genCppNameSpaceInclusionPath() << "/" << cppName << ".h>" << std::endl;
     ofs << std::endl;
     addBoilerPlate(ofs);
@@ -285,8 +292,16 @@ void Klass::generateInterfaceDefinition() const {
     createFile(genCppNameSpaceInclusionPath() + "/" + cppName + ".cpp", &ofs);
 
     startInternal(ofs);
+
+    // Include property classes
+    // FIXME: Should be done in interface header, but naively including in headers may cause compilation errors!
+    for ( const std::shared_ptr<ontology::ObjectProperty>& prop : _decorated.objectProperties())
+        ObjectProperty(*prop.get()).generateInclusionPath(ofs, _decorated);
+    ofs << std::endl;
+
     ofs << "#include <" << genCppNameSpaceInclusionPath() << "/" << cppName << ".h>" << std::endl;
     ofs << std::endl;
+
     addBoilerPlate(ofs);
     ofs << std::endl;
     ofs << "#include <sstream>" << std::endl;

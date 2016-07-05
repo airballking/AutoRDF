@@ -15,6 +15,8 @@ INCLUDE_DIRECTORIES(
     "${PROJECT_SOURCE_DIR}/include"
     "${PROJECT_SOURCE_DIR}/src"
     "${PROJECT_SOURCE_DIR}/src/autordf"
+    "${PROJECT_SOURCE_DIR}/src/autordf/codegen/unittests/"
+    "${PROJECT_SOURCE_DIR}/src/autordf/codegen/unittests/foaftest/"
     "${PROJECT_BINARY_DIR}/include"
     "${PROJECT_BINARY_DIR}/src"
     "${REDLAND_INCLUDE_DIRS}"

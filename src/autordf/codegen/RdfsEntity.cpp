@@ -35,6 +35,10 @@ std::string RdfsEntity::genCppNameSpaceInclusionPath() const {
     return genCppNameSpaceInternal("/");
 }
 
+std::string RdfsEntity::prettyIRIName() const {
+    return _decorated.prettyIRIName();
+}
+
 std::string RdfsEntity::genCppNameSpaceFullyQualified() const {
     return genCppNameSpaceInternal("::");
 }

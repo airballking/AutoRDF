@@ -33,6 +33,8 @@ public:
     // [outfolder/]namespace
     std::string genCppNameSpaceInclusionPath() const;
 
+    std::string prettyIRIName() const;
+
     // [OURFOLDER_]NAMESPACE
     std::string genCppNameSpaceForGuard() const;
 
